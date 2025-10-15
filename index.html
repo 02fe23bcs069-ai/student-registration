@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Include this if you don't have a separate style.css file */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 25px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #message {
+      margin-top: 15px;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Student Registration Form</h2>
+    <form id="registerForm">
+      <label>Full Name:</label>
+      <input type="text" id="fullname" placeholder="Enter your full name" required />
+
+      <label>Email Address:</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+
+      <label>Phone Number:</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required />
+
+      <label>Password:</label>
+      <input type="password" id="password" placeholder="Enter your password" required />
+
+      <button type="submit">Register</button>
+    </form>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    // Handle form submission
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const fullname = document.getElementById("fullname").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const password = document.getElementById("password").value;
+
+      if (!fullname || !email || !phone || !password) {
+        alert("⚠️ Please fill all fields!");
+        return;
+      }
+
+      document.getElementById("message").textContent =
+        `✅ Registration successful! Welcome, ${fullname}.`;
+
+      // Clear form
+      event.target.reset();
+    });
+  </script>
+</body>
+</html>
